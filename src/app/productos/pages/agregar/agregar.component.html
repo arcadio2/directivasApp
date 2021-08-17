@@ -1,0 +1,44 @@
+<h1 class="mt-5">Agregar producto</h1>
+<hr>
+
+<form [formGroup]="miFormulario">  
+    <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+            <label class="col-form-label">Nombre</label>
+        </div>
+        <div class="col-auto">
+            <input class="form.control" placeholder="nombre" formControlName="nombre">  
+        </div>
+        <div class="col-auto">
+            <span errorMsg [color]="color" [mensaje]="mensaje"
+                [valido]="!esInvalido('nombre')" >
+                
+            </span>  
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <button class="btn btn-primary" (click)="guardar()">
+                Guardar
+            </button>
+        </div>
+        <div class="col">
+            <button class="btn btn-secondary" (click)="cambiarColor()">
+                Cambiar color
+            </button>
+        </div>
+    </div>
+
+</form>
+
+<h3 class="mt-5">Formulario</h3>
+<pre>Value: {{miFormulario.value | json}}</pre>
+<pre>Valid: {{miFormulario.valid}}</pre>
+
+<div class="row">
+    <div class="col">
+        <div class="alert alert-primary" *ngIf="!esInvalido('nombre')" customIf>
+            Todo OK!
+        </div>
+    </div>
+</div>
