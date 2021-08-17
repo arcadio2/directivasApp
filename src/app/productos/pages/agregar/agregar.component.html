@@ -37,7 +37,7 @@
 
 <div class="row">
     <div class="col">
-        <div class="alert alert-primary" *ngIf="!esInvalido('nombre')" customIf>
+        <div class="alert alert-primary"  *customIf="!miFormulario.invalid">
             Todo OK!
         </div>
     </div>
